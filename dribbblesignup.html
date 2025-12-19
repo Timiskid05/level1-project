@@ -1,0 +1,143 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dribbble Signup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+ 
+    <style>
+        body, html {
+        height: 100%;
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: #ffffff;      
+     }
+     .wrapper {
+        display: flex;
+        height: 100vh;
+
+     }
+    .left {
+            flex: 2.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+    }
+    .right {
+            flex: 1.5;
+            background: #000;
+
+    }
+    .right video, .right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .top-logo {
+        position: absolute;
+        top: 2rem;
+        left: 2.5rem;
+        height: 32px;
+        }
+    .form-box {
+             max-width: 380px;
+             width: 100%;
+             text-align: center;
+        }
+    .ball-logo {
+        width: 60px;
+        margin-bottom: 2rem;
+    }
+    .or{
+        position: relative;
+        margin: 1.5rem 0;
+        color: #888;
+
+    }  
+    .or::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: #ddd
+    }  
+    .or span {
+        background: #fffaf8;
+        padding: 0 16px;
+    }
+    .terms {
+        font-size: 13px;
+        color: #666;
+        margin-top: 1.5rem;
+    }
+    .signin {
+        color: #666;
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 15px;
+    }
+    .input{
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      height: 23px;
+      text-align: start;
+      color: #666;
+      width: 320px;
+      font-size: 15px;
+    }
+    
+    </style>
+    </head>
+    <body>  
+        
+        <div class="wrapper">
+            <div class="left">
+                
+                <img src="../level1 project/Dribbble-Logo.jpg" alt="" class="top-logo">
+                <div class="form-box">
+                    <img src="../level1 project/streamline-plump--ball.svg" alt="" class="ball-logo">
+
+                 <h1 class="h4 fw-bold mb-3">Welcome to Dribbble </h1>   
+                 <p class=" mb-3" style="color: #131346; font-size: 14px;">Create your account and discover world-class<br> design talent</p>
+
+                  <button class="btn btn-light border rounded-4 d-flex align-items-center justify-content-left py-3 shadow-sm mb-3" style="height: 40px; background-color: white; width: 320px; margin-left: 25px;">
+        <img src="../level1 project/material-icon-theme--google.svg" width="20" alt="Google">
+         <span style="padding-left: 68px;color: #666;">Continue with Google</span> 
+      </button>
+
+      <div class="or"><span>or</span></div>
+
+      <form>
+        <input type="email" class="input form-control-lg mb-3" placeholder="Enter email address" required>
+        <button class="btn rounded-4  py-2 fw-semibold" style="height: 45px; width: 320px; background-color: #0D0c22; color: white;">Continue</button>
+      </form>
+
+      <p class="terms">
+        By continuing, you agree to our <a href="#" style="color: #666;">Terms</a> and <a href="#" style="color: #666;">Privacy<br> Policy</a>.
+      </p>
+
+      <p class="mt-4" style="color: #666; font-size: 15px;">Already have an account? <a href="dribblelogin.html" class="signin">Sign in</a></p>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE - Your animation -->
+  <div class="right">
+    <video autoplay muted loop playsinline>
+      <source src="../level1 project/dribbble signup.mp4" type="video/mp4">
+    </video>
+    <!-- Or use: <img src="your-animation.gif"> -->
+  </div>
+</div>
+    
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

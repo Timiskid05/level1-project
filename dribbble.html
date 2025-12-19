@@ -1,0 +1,2034 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dribbble</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+ <style>
+    .navbar{
+        background-color: #fff;
+        /* border-bottom: 1px solid #e5e5e5; */
+        padding: 1.5rem 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    .navbar-brand img{
+        height: 32px;
+    }
+    .nav-link{
+        color: black;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+    }
+    .nav-link:hover{
+        /* color:  #333; */
+        color: #7B7194;
+    }
+    .btn-login {
+      background-color: black;
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+    }
+    .btn-login:hover {
+      background-color: #3D3d4e;
+       
+    }
+    .btn-signup {
+      color: black;
+      font-weight: 500;
+    }
+    .btn-signup:hover {
+      color: #333;
+    }
+    .hover-bg:hover {
+      background-color: #b2b1b3;
+    }
+
+
+
+    /* Search Wrapper - Hidden by default */
+.navbar__search-wrapper {
+    display: none;
+    max-width: 600px;
+    flex: 1;
+}
+
+/* Show search bar when scrolled */
+.navbar--scrolled .navbar__search-wrapper {
+    display: flex;
+}
+
+/* Search Container - holds input, dropdown, and button */
+.navbar__search-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: #f3f4f6;
+    border-radius: 30px;
+    padding: 4px;
+    gap: 10px;
+}
+
+/* Search Input */
+.navbar__search-container input {
+    flex: 1;
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    outline: none;
+    color: #374151;
+}
+
+.navbar__search-container input::placeholder {
+    color: #9ca3af;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown__button {
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.dropdown__button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.dropdown__button::after {
+    content: '▼';
+    font-size: 9px;
+}
+
+.dropdown__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 12px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    min-width: 160px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown__menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown__menu a {
+    display: block;
+    padding: 12px 20px;
+    color: #374151;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.dropdown__menu a:first-child {
+    border-radius: 12px 12px 0 0;
+}
+
+.dropdown__menu a:last-child {
+    border-radius: 0 0 12px 12px;
+}
+
+.dropdown__menu a:hover {
+    background: #f3f4f6;
+}
+
+/* Search Button - Pink Circle */
+.navbar__search-btn {
+    width: 44px;
+    height: 44px;
+    background: #ea4c89;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.navbar__search-btn:hover {
+    background: #d63a73;
+}
+
+.navbar__search-btn svg {
+    width: 20px;
+    height: 20px;
+}
+    
+
+
+
+
+
+  
+   .hero-section {
+      min-height: 90vh;
+      background: #fff; /* Dribbble's signature light peach background */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel video {
+  height: 420px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .carousel video {
+    height: 260px;
+  }
+}
+
+    /* .hero-video {
+      position: absolute;
+      top: 38%;
+      right: -5%; 
+      transform: translateY(-50%);
+      width: 550px;
+      border-radius: 20px;
+      margin-right: 45px;
+      height: auto;
+      z-index: 1;
+      pointer-events: none;
+    } */
+
+    /* @media (max-width: 992px) {
+      .hero-video {
+        width: 500px;
+        right: -20%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-video {
+        position: relative;
+        width: 100%;
+        right: auto;
+        transform: none;
+        margin: 2rem auto 0;
+      }
+    } */
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 550;
+      line-height: 1;
+      color: #2d2d2d;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 500px;
+    }
+
+    .item.active-button{
+      background: #000;
+      color: #fff;
+    }
+
+    .menu:hover .active-button:not(:hover) {
+      background: #fff;
+      color: #000;
+      border: 1px solid#000;
+    }
+
+     .item:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .search-box {
+      max-width: 480px;
+      background: #ccc;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .search-box input {
+      border: none;
+      background: #ccc;
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .search-box button {
+      background: #ea4c89;
+      margin-right: 13px;
+      margin-top: 4px;
+      border: none;
+      height: 50px;
+      width: 50px;
+      padding: 0 1rem;
+      border-radius: 50px;
+    }
+    .search-box:hover{
+      background: white;
+    }
+    .search-box button:hover {
+      background-color: #ec5e95;
+      
+      
+    }
+
+    .popular-tags a {
+      background: #fff;
+      color: #000;
+      border: 1px solid #ccc;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .popular-tags a:hover {
+      background: #FAF9FB;
+      
+    }
+
+    /* .promo-banner {
+      background: #2d2d2d;
+      color: white;
+      padding: 1rem 0;
+      font-size: 1.1rem;
+    }   */
+
+
+
+    /* .match-bar {
+      background-color: #e8f0fe;
+      border-radius: 50px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    } */
+    .category-bar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      scrollbar-width: none;
+    }
+    .category-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .category-link {
+      color: #0b0b0b;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 8px 0;
+    }
+    .category-link:hover {
+      color: #6E6D82;
+    }
+    .filters-btn {
+      background-color: #f1f3f5;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .filters-btn:hover {
+      background-color: #e2e6ea;
+    }
+    .filter-row {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .filter-row.show {
+      display: block;
+      animation: slideDown 0.4s ease;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .form-control, .form-select {
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      padding: 12px 16px;
+    }
+    .input-group-text {
+      background-color: transparent;
+      border-radius: 12px 0 0 12px;
+    }
+    .color-preview {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      display: inline-block;
+    }
+
+    .shot-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .shot-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+    .shot-img { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
+    .shot-card:hover .shot-img { transform: scale(1.05); }
+
+    /* Hover Overlay */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75), transparent 30%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      color: white;
+    }
+    .shot-card:hover .overlay { opacity: 1; }
+
+    .overlay-title {
+      font-weight: 600;
+      font-size: 1.15rem;
+      /* margin-bottom: 12px; */
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+      display: flex;
+      gap: 27px;
+    }
+    .overlay-actions {
+      display: flex;
+       gap: 5px; 
+        margin-left: -10px;
+    }
+    .action-btn {
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.22);
+      backdrop-filter: blur(12px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .action-btn:hover {
+      background: white;
+      transform: scale(1.15);
+    }
+    .action-btn:hover img {
+      filter: brightness(0) saturate(100%) invert(28%) sepia(97%) saturate(7473%) hue-rotate(316deg) brightness(94%) contrast(101%); /* pink #ea4c89 */
+    }
+    .action-btn img {
+      width: 22px;
+      height: 22px;
+      filter: brightness(0) invert(1); /* white by default */
+      transition: filter 0.3s ease;
+    }
+
+    /* User Info Bar */
+    .user-bar {
+      padding: 14px 16px;
+      background: white;
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .avatar { width: 32px; height: 32px; border-radius: 50%; margin-right: 10px; object-fit: cover; 
+           }
+    .username { font-weight: 600; color: #333; 
+        }
+    .tag { font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; margin-left: 6px; 
+    }
+    .tag-team { background: #e9ecef; color: #555; 
+         }
+    .tag-pro { background: #d4edda; color: #155724; 
+            }
+    .stats { margin-left: auto; display: flex; gap: 14px; color: #666; font-size: 0.9rem; 
+         }
+
+
+     .modal-content {
+            border-radius: 16px;
+            border: none;
+            padding: 20px;
+            height: 600px;
+            width: 450px;
+        }
+
+        .dribbble-logo {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 20px; 
+        }
+
+        .modal-header {
+            border: none;
+            padding-bottom: 0;
+        }
+
+        .modal-body {
+            padding: 20px 40px 40px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0d0c22;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .modal-subtitle {
+            color: #0d0c22;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .google-btn {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e7e7e9;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            gap: 10px;
+            font-weight: 500;
+            color: #0d0c22;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .google-btn:hover {
+            background: #f0f5fe;
+            border-color: #d1d1d6;
+        }
+
+        .google-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #9e9ea7;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 42%;
+            height: 1px;
+            background: #e7e7e9;
+        }
+
+        .divider::before {
+            left: 0;
+        }
+
+        .divider::after {
+            right: 0;
+        }
+
+        .form-control {
+            padding: 12px 16px;
+            border: 1px solid #e7e7e9;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .form-control:focus {
+            border-color: #ea4c89;
+            box-shadow: 0 0 0 3px rgba(234, 76, 137, 0.1);
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 12px;
+            background: #0d0c22;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .continue-btn:hover {
+            background: #1a1825;
+            transform: translateY(-1px);
+        }
+
+        .terms-text {
+            text-align: center;
+            font-size: 12px;
+            color: #9e9ea7;
+            margin-top: 20px;
+        }
+
+        .terms-text a {
+            color: #ea4c89;
+            text-decoration: none;
+        }
+
+        .terms-text a:hover {
+            text-decoration: underline;
+        }
+
+        .signin-text {
+            text-align: center;
+            font-size: 14px;
+            color: #6e6d7a;
+            margin-top: 20px;
+        }
+
+        .signin-text a {
+            color: #ea4c89;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signin-text a:hover {
+            text-decoration: underline;
+        }
+
+        .trigger-btn {
+            padding: 14px 32px;
+            background: #0d0c22;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            height: 45px;
+            width: 210px;
+            margin-left: 45%;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .trigger-btn:hover {
+            background: #1a1825;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        } 
+        
+        
+
+.scroll-section{
+  padding: 40px 0;
+  /* background: #f8f9fa; */
+
+}
+
+.scroll-wrapper{
+  width: 100%;
+  overflow: hidden;
+}
+
+.scroll-track{
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.scroll-wrapper:hover .scroll-track{
+  animation-play-state:paused;
+}
+
+.scroll-track img{
+  width: 260px;
+  border-radius: 14px;
+  transition: transform 0.3s ease;
+}
+
+.scroll-track img:hover{
+  transform: scale(1.05);
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+  
+}
+
+
+main {
+        flex: 1;
+    }
+
+    .sticky-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+        padding: 20px 0;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .promo-text {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .promo-code {
+        font-weight: bold;
+        color: #4fc3f7;
+    }
+
+    .terms-btn {
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        text-decoration: none;
+        transition: all 0.3s;
+        font-size: 0.9rem;
+    }
+
+    .terms-btn:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        color: white;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        transition: color 0.3s;
+    }
+
+    .close-btn:hover {
+        color: white;
+    }
+
+    main {
+        flex: 1;
+    }
+
+    /* Main Header/Navigation */
+    .top-header {
+        background-color: #f3f3f4;
+        padding: 25px 0;
+        border-bottom: 1px solid #e7e7e9;
+        margin-bottom: 100px;
+    }
+
+    .top-header .container-fluid {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo-section img {
+        height: 35px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 35px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        color: #0d0c22;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    
+
+    .social-header {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .social-header img {
+        width: 20px;
+        height: 20px;
+        opacity: 0.6;
+        transition: opacity 0.3s;
+    }
+
+
+    /* Sticky promotional banner */
+    .sticky-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #0D0C22;
+        /* background: linear-gradient(90deg, #3d4451 0%, #4a5568 100%); */
+        color: white;
+        padding: 18px 0;
+        
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+    }
+
+    .sticky-footer .container-fluid {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .promo-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .promo-text {
+        font-size: 16px;
+        margin: 0;
+        font-weight: 400;
+        color: #ffffff;
+    }
+
+    .promo-code {
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    .promo-right {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .terms-btn {
+        background-color: white;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #0c0b0b;
+        padding: 10px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s;
+        white-space: nowrap;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 28px;
+        cursor: pointer;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        transition: color 0.3s;
+        line-height: 1;
+    }
+
+    .close-btn:hover {
+        color: white;
+    }
+
+    /* Add margin to body for sticky footer */
+    body {
+        padding-bottom: 70px;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            gap: 15px;
+            font-size: 13px;
+        }
+
+        .promo-content {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .promo-text {
+            font-size: 14px;
+        }
+
+        .sticky-footer {
+            padding: 15px 0;
+        }
+    }
+ </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid px-4">
+
+   
+    <a class="navbar-brand" href="#">
+      <img src="../level1 project/Dribbble-Logo.jpg" alt="Dribbble">
+    </a>
+
+
+    <!-- Add this to your navbar, between the logo and menu items -->
+<div class="navbar__search-wrapper">
+    <div class="navbar__search-container">
+        <input type="text" placeholder="What are you looking for?">
+        
+        <div class="dropdown">
+            <button class="dropdown__button">Shots</button>
+            <div class="dropdown__menu">
+                <a href="#">Shots</a>
+                <a href="#">Designers</a>
+                <a href="#">Services</a>
+            </div>
+        </div>
+
+        <button class="navbar__search-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+    <!-- Mobile toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+
+
+
+
+
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      
+      <!-- Center Navigation Links (no dropdowns yet) -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" >Explore <img src="../level1 project/ep--arrow-down.svg"></a>
+        <div class="dropdown-menu shadow-lg mb-4" style="background-color: #fff; color: #333; width: 18vw; height: 67vh; border: none; padding: 10px;">
+          <a href="" class="nav-link"><img src="../level1 project/meteor-icons--arrow-trend-up.svg" alt=""> Popular </a>
+          <a href="" class="nav-link"><img src="../level1 project/ph--star-four.svg" alt=""> New and Noteworthy</a>
+          <hr style="width: 195px; margin-left: 10px;">
+          <a href="" class="nav-link" style="font-weight: normal;">Product Design </a>
+          <a href="" class="nav-link" style="font-weight: normal;">Web Design </a>
+          <a href="" class="nav-link" style="font-weight: normal;">Animation </a>
+          <a href="" class="nav-link" style="font-weight: normal;">Branding </a>
+          <a href="" class="nav-link" style="font-weight: normal;">illustration </a>
+          <a href="" class="nav-link" style="font-weight: normal;">Mobile </a>
+          <a href="" class="nav-link" style="font-weight: normal;">Typography </a>
+          <a href="" class="nav-link" style="font-weight: normal;">Print </a>
+        </div>
+        </li>
+        
+        <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Hire Talent <img src="../level1 project/ep--arrow-down.svg"></a>
+        <div class="dropdown-menu shadow-lg border-0 rounded-4 p-4" style="width: 680px;">
+          <div class="row">
+
+            <!-- Left Column-->
+             <div class="col-8">
+
+              <a href="" class="text-decoration-none text-dark d-block rounded-3 p-3 hover-bg-light">
+                     <div class="fw-semibold"> <img src="../level1 project/solar--document-text-outline.svg" alt="" height="20" width="20"> Start Project Brief</div>
+                    <div class="text-muted small" style="padding-left: 23px;">Get recommendation and proposal</div></a>
+
+                    <a href="" class="text-decoration-none text-dark d-block rounded-3 p-3 hover-bg-light">
+                      <div class="fw-semibold"> <img src="../level1 project/profile.jpg" alt="" height="22" width="22"> Browse Profiles</div>
+                    <div class="text-muted small" style="padding-left: 23px;">Find message talent directly</div> 
+                    </a>
+
+                    <a href="" class="text-decoration-none text-dark d-block rounded-3 p-3 hover-bg-light">
+                      <div class="fw-semibold"> <img src="../level1 project/clarity--tag-line.svg" alt="" height="20" width="20"> Explore Services</div>
+                    <div class="text-muted small" style="padding-left: 23px;">Hire quickly with pre-packaged services</div> 
+                    </a>
+
+                    <div class="border-top pt-3 mt-2">
+                      <a href="" class="text-decoration-none" style="color: #4B4B5B; font-weight: 500;"> 
+                        <img src="../level1 project/system-uicons--book.svg" width="16" height="16" class="me-1" alt=""> Learn more about how hiring works on a Dribble <img src="../level1 project/si--arrow-right-line.svg" alt="">
+                      </a>
+                    </div>
+                    </div>
+
+                    <div class="col-4">
+                      <div class="text-end">
+                        <a href="" class="text-decoration-none fw-semibold d-inline-block" style="color: #0c0b0b; font-size: 1.05rem;"> Post a Full-Time Job <img src="../level1 project/si--arrow-right-line 2.svg" alt=""></a>
+                        
+                      </div>
+                    </div>
+
+             
+          </div>
+        </div>
+      </li>
+        
+        <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Get Hired <img src="../level1 project/ep--arrow-down.svg"></a>
+        <div class="dropdown-menu shadow-lg border-0 rounded-4 p-4" style="width: 680px;">
+          <div class="row">
+
+            <!-- Left Column-->
+             <div class="col-8">
+
+              <a href="" class="text-decoration-none text-dark d-block rounded-3 p-3 hover-bg-light">
+                     <div class="fw-semibold"> <img src="../level1 project/solar--document-text-outline.svg" alt="" height="20" width="20"> Browse Project Briefs</div>
+                    <div class="text-muted small" style="padding-left: 23px;">Send proposals to clients</div></a>
+
+                    <a href="" class="text-decoration-none text-dark d-block rounded-3 p-3 hover-bg-light">
+                      <div class="fw-semibold"> <img src="../level1 project/add.jpg" alt="" height="25" width="25"> Add a Service</div>
+                    <div class="text-muted small" style="padding-left: 23px;">Lets clients purchase your services</div> 
+                    </a>
+
+                    <a href="" class="text-decoration-none text-dark d-block rounded-3 p-3 hover-bg-light">
+                      <div class="fw-semibold"> <img src="../level1 project/bi--bag.svg" alt="" height="20" width="20"> Apply to Full-Time Jobs</div>
+                    <div class="text-muted small" style="padding-left: 23px;">View open design roles</div> 
+                    </a>
+
+                    <div class="border-top pt-3 mt-2">
+                      <a href="" class="text-decoration-none" style="color: #4B4B5B; font-weight: 500;"> 
+                        <img src="../level1 project/system-uicons--book.svg" width="16" height="16" class="me-1" alt=""> Learn more about getting hired on Dribble <img src="../level1 project/si--arrow-right-line.svg" alt="">
+                      </a>
+                    </div>
+                     </div>
+                     
+                     <div class="col-4">
+                      <div class="text-end">
+                        <a href="" class="text-decoration-none fw-semibold d-inline-block" style="color: #0c0b0b; font-size: 1.05rem;">Upgrade to Pro <img src="../level1 project/si--arrow-right-line 2.svg" alt=""></a>
+                        <a href="" class="text-decoration-none fw-semibold d-inline-block" style="color: #0c0b0b; font-size: 1.05rem;">Advertise with Us <img src="../level1 project/si--arrow-right-line 2.svg" alt=""></a>
+                        
+                      </div>
+                    </div>
+                   
+                    
+
+                   
+
+                     
+
+            
+          </div>
+        </div>
+        </li>
+
+
+        <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" >Community <img src="../level1 project/ep--arrow-down.svg"></a>
+        <div class="dropdown-menu shadow-lg border-0 rounded-4 p-4" style="width: 500px;">
+          
+
+              <a href="" class="text-decoration-none text-dark d-block rounded-3 p-3 hover-bg-light">
+                     <div class="fw-semibold"> <img src="../level1 project/blog.jpg" alt="" height="25" width="25"> Blog</div>
+                    <div class="text-muted small" style="padding-left: 23px;">Design inspiration, stories and tips</div></a>
+
+                    <a href="" class="text-decoration-none text-dark d-block rounded-3 p-3 hover-bg-light">
+                      <div class="fw-semibold"> <img src="../level1 project/trophy.jpg" alt="" height="25" width="25"> Playoffs</div>
+                    <div class="text-muted small" style="padding-left: 23px;">Join creative challanges and show your skills</div> 
+                    </a>
+
+                    <a href="" class="text-decoration-none text-dark d-block rounded-3 p-3 hover-bg-light">
+                      <div class="fw-semibold"> <img src="../level1 project/help center.jpg" alt="" height="25" width="25"> Help Centers</div>
+                    <div class="text-muted small" style="padding-left: 23px;">Get quick answers and learn how to use Dribble</div> 
+                    </a>
+
+                    <div class="border-top pt-3 mt-2">
+                      <div class="ms-auto d-flex  gap-2 fixed-social-bar">
+                      <span style="color: #4B4B5B; font-weight: 500; padding-left: 20px;"> 
+                        Follow Us 
+                      </span>
+                      <a href="https://www.instagram.com/dribbble?igsh=MTVpMHFwdzN6ZTZyMQ==" target="_blank" class="text-dark"><img src="../level1 project/uil--instagram.svg" alt="instagram" height="22" width="22"></a>
+                      <a href="https://x.com/dribbble?s=21&t=v_3XZ0UsUm-O2B6GGZwkGQ" target="_blank" class="text-dark"><img src="../level1 project/prime--twitter.svg" alt="twitter" height="20" width="20"></a>
+                       <a href="https://pin.it/1pboWj3yc" target="_blank" class="text-dark"><img src="../level1 project/akar-icons--pinterest-fill.svg" alt="Pinterest" height="20" width="20"></a>
+                       <a href="https://youtube.com/@dribbble?si=qIjxBWNVgAkHtSNU" target="_blank" class="text-dark"><img src="../level1 project/iconoir--youtube-solid.svg" alt="youtube" height="22" width="22"></a>
+                       <a href="https://www.tiktok.com/@dribbble.com?_r=1&_t=ZS-91xKCrDBwoh" target="_blank" class="text-dark"><img src="../level1 project/mingcute--tiktok-fill.svg" alt="tiktok" height="20" width="20"></a>
+                       <a href="https://www.threads.com/@dribbble" target="_blank" class="text-dark"><img src="../level1 project/ri--threads-fill.svg" alt="thread" height="20" width="20"></a>
+
+                      </div>
+                    </div>
+
+                   
+
+             
+        </div>
+        </li>
+      </ul>
+
+      <!-- Right Side: Search + Buttons -->
+      <div class="d-flex align-items-center gap-3">
+        <!-- <form class="d-none d-lg-block">
+          <input class="form-control" type="search" placeholder="Search" style="width: 200px;">
+        </form> -->
+
+        <a href="dribbblesignup.html" class="btn btn-signup">Sign up</a>
+        <a href="dribblelogin.html" class="btn btn-login  text-decoration-none">Log in</a>
+      </div>
+    </div>
+  </div>
+</nav>
+   
+<!-- Hero Section -->
+  <section class="hero-section d-flex align-items-center">
+    <div class="container position-relative z-2">
+      <div class="row align-items-center">
+        
+        <!-- Left Content -->
+        <div class="col-lg-6">
+          <h1 class="hero-title mb-4">
+            Discover the<br>World’s Top<br>Designers
+          </h1>
+          <p class="hero-subtitle mb-5">
+            Explore work from the most talented and accomplished designers ready to take on your next project.
+          </p>
+
+          <!-- Category Pills -->
+          <div class="d-flex gap-3 mb-4 flex-wrap menu">
+            <a href="#" class="btn rounded-pill px-4 border-0 item active-button"><img src="../level1 project/lucide--image.svg"> Shots</a>
+            <a href="#" class="btn btn-outline-dark rounded-pill px-4 border-0 item"><img src="../level1 project/profile.jpg" alt="" height="22" width="22"> Designers</a>
+            <a href="#" class="btn btn-outline-dark rounded-pill px-4 border-0 item"><img src="../level1 project/solar--document-text-outline.svg" alt="" height="18" width="18"> Services</a>
+          </div>
+
+          <!-- Search Box -->
+          <div class="search-box d-flex mb-4">
+            <input type="text" class="form-control border-0 shadow-none" placeholder="What type of design are you interested in?">
+            <button class="btn">
+              <i class="bi bi-search"> <img src="../level1 project/material-symbols-light--search-rounded.svg" height="25" width="25"></i>
+            </button>
+          </div>
+
+          <!-- Popular Tags -->
+          <div class="popular-tags">
+            <small class="fw-bold">Popular:</small>
+            <a href="#" style="font-size: 13px;">dashboard</a>
+            <a href="#" style="font-size: 13px;">landing page</a>
+            <a href="#" style="font-size: 13px;">e-commerce</a>
+            <a href="#" style="font-size: 13px;">logo</a>
+          </div>
+          
+        </div>
+        
+
+        <!-- Right Side Video -->
+        <div class="col-lg-6 text-lg-end">
+          <!-- Right Side Video -->
+        <div id="videoCarousel" class="carousel slide" data-bs-ride="carousel">
+
+  <div class="carousel-inner rounded-4 shadow">
+
+    <!-- VIDEO 1 -->
+    <div class="carousel-item active">
+      <video class="w-100 rounded-4"
+             autoplay muted loop playsinline>
+        <source src="../level1 project/damien.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- VIDEO 2 -->
+    <div class="carousel-item">
+      <video class="w-100 rounded-4"
+             autoplay muted loop playsinline>
+        <source src="../level1 project/xin yah.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- VIDEO 3 -->
+    <div class="carousel-item">
+      <video class="w-100 rounded-4"
+             autoplay muted loop playsinline>
+        <source src="../level1 project/malvah studio.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container py-4" style="margin-top: -20px;">
+
+    <!-- EXACT "Get Matched Now" from your first screenshot -->
+<div class="mb-5">
+  <!-- Main light purple bar -->
+  <div class="bg-light-indigo  px-5 py-4" 
+       style="background-color: #eef2ff; max-height: 86px; border: 1px solid #e0e7ff; border-radius: 30px;">
+
+    <div class="d-flex align-items-center h-100">
+      <!-- White pill with "Get Matched Now" -->
+      <div class="position-relative bg-white rounded-pill px-4 py-2 d-flex align-items-center shadow-sm me-4"
+           style="border: 1px solid #e2e6ff; height: 44px; min-width: 180px; margin-left: -25px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#6366f1" class="me-2">
+          <path d="M12 2L14.09 8.26L20.18 8.27L15.54 11.97L17.45 18.02L12 14.27L6.55 18.02L8.46 11.97L3.82 8.27L9.91 8.26L12 2Z"/>
+        </svg>
+        <strong class="text-dark">Get Matched Now</strong>
+
+        <span class="position-absolute badge rounded-pill fw-bold"
+        style="background-color: #ec4899; 
+               color: white; 
+               font-size: 11px; 
+               padding: 6px 14px;
+               top: 0;
+               right: 0;
+               transform: translateY(-50%);">
+    NEW
+  </span>
+      </div>
+
+      
+
+      <!-- Description text -->
+      <span class="text-muted" style="font-size: 15px; line-height: 1.5;">
+        Tell us what you need and instantly get matched with world-class talent ready to work on your project.
+      </span>
+    </div>
+  </div>
+
+  <!-- NEW badge overlapping the bar -->
+  
+</div>
+
+    <!-- Categories + Filters Button -->
+    <div class="d-flex align-items-center category-bar">
+      <select class="form-select w-auto" style="min-width: 130px; font-weight: 500; border-radius: 18px;">
+        <option>Popular</option>
+        <option>Popular</option>
+        <option>New & Noteworthy</option>
+      </select>
+
+      <a href="#" class="category-link" style="background-color: #ccc; text-align: center; border-radius: 20px;  width: 100px; height: 35px;">Discover</a>
+      <a href="#" class="category-link">Animation</a>
+      <a href="#" class="category-link">Branding</a>
+      <a href="#" class="category-link">Illustration</a>
+      <a href="#" class="category-link">Mobile</a>
+      <a href="#" class="category-link">Print</a>
+      <a href="#" class="category-link">Product Design</a>
+
+      <!-- Right Arrow using <img> -->
+      <img src="../level1 project/arrow right.svg" 
+           alt="more" 
+           width="20" 
+           class="ms-2 opacity-75" 
+           style="filter: grayscale(100%);">
+
+      <!-- Filters Button -->
+      <button class="btn filters-btn ms-auto" id="toggleFilters"><img src="../level1 project/mynaui--filter-solid.svg" alt="" width="16" height="16">
+        Filters
+      </button>
+    </div>
+
+    <!-- Hidden Filters Row -->
+    <div class="filter-row" id="filterRow">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-4">
+          <label class="form-label fw-semibold text-muted">Tags</label>
+          <div class="input-group">
+            <span class="input-group-text bg-transparent border-end-0">
+              <svg width="18" height="18" fill="#888" viewBox="0 0 16 16">
+                <path d="M8 15a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="m8 4.5a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg>
+            </span>
+            <input type="text" class="form-control border-start-0" placeholder="Search tags...">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label fw-semibold text-muted">Color</label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <span class="color-preview"></span>
+            </span>
+            <input type="text" class="form-control" placeholder="Enter hex or select">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label fw-semibold text-muted">Timeframe</label>
+          <select class="form-select">
+            <option>Now</option>
+            <option>This week</option>
+            <option>This month</option>
+            <option>Custom range</option>
+          </select>
+        </div>
+      </div>
+    </div>
+       
+</div>
+
+
+<div class="container">
+  <div class="row g-4">
+
+    <!-- Card 1 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-1.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/unlock horizon.png" alt="pado home page" class="shot-img">
+
+          <div class="overlay">
+            <div class="overlay-title">pado. home page inter
+              <div class="overlay-actions">
+              <div class="action-btn">
+                <img src="icons/download.svg" alt="Comment">
+              </div>
+              <div class="action-btn">
+                <img src="icons/download (1).svg" alt="Like">
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <div class="user-bar">
+        <img src="../level1 project/emote.png" alt="Emote" class="avatar">
+        <div>
+          <span class="username">Emote</span>
+          <span class="tag tag-team">TEAM</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">87</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">5.4k</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-2.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/ronas cover.png" alt="Finance Dashboard" class="shot-img">
+          
+          <div class="overlay">
+            <div class="overlay-title">Finance Dashboard UI
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      
+      <div class="user-bar">
+        <img src="../level1 project/ronas.jpg" alt="Ronas" class="avatar">
+        <div>
+          <span class="username">Ronas IT | UI/UX Team</span>
+          <span class="tag tag-team">TEAM</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="" width="13px">87</span><span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="" width="14px">869</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/alfrey cover.png" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Christmas Fox Illustra
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/alfrey.jpg" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">Alfrey Davilla Ivanetta</span>
+          <span class="tag tag-pro">PRO</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">15</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">854</span>
+        </div>
+      </div>
+    </div>
+
+    <!--Card 4-->
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/nixtio cover.png" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Online Langauage Lea.
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/Nixtio.gif" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">Nixtio</span>
+          <span class="tag tag-pro">PRO</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">198</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">18.2k</span>
+        </div>
+      </div>
+    </div>
+
+    <!--Card 5-->
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/phenomenon cover.png" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Cannabis Digital Mar..
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/phenomenon.png" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">Phenomenon Studio</span>
+          <span class="tag tag-pro">PRO</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">73</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">182</span>
+        </div>
+      </div>
+    </div>
+
+    <!--Card 6-->
+     <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/human studio.png" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Crypto Brand Identity
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/phenomenon.png" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">Phenomenon Studio</span>
+          <span class="tag tag-pro">PRO</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">161</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">22k</span>
+        </div>
+      </div>
+    </div>
+
+    <!--Card 7-->
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/iman cover.png" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Universal Payment So..
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/iman.png" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">Iman</span>
+          <span class="tag tag-pro">PRO</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">111</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">3.5k</span>
+        </div>
+      </div>
+    </div>
+
+    <!--Card 8-->
+     <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/alexey cover.png" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Bee mascot explorati..
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/alexey.png" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">Alexey Kuvaldin</span>
+          <span class="tag tag-pro">PRO</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">27</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">4.5k</span>
+        </div>
+      </div>
+    </div>
+
+    <!--Card 9-->
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/tubik cover.png" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Case Study: Life Track
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/tubik.jpg" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">tublik</span>
+          <span class="tag tag-pro">TEAM</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">56</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">3k</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 10-->
+     <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/heartbeat cover.jpg" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">web3: verification laye
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/heartbeat.png" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">heartbeat</span>
+          <span class="tag tag-pro">TEAM</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">60</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">4.4k</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 11-->
+     <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/Luxury.png" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Real Estate Social Med
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/phenomenon.png" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">Phenomenon Studio</span>
+          <span class="tag tag-pro">TEAM</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">63</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">4.9k</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 12-->
+     <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/mobile cover.png" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Fintech Budgeting..
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/ronas.jpg" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">Ronas IT UI/UX</span>
+          <span class="tag tag-pro">TEAM</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">25</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">2.9k</span>
+        </div>
+      </div>
+    </div>
+
+    <!--Card 13-->
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/Andrii cover.webp" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Wolf and moon logo
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/andrii.png" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">Andrii Kovalchuk</span>
+          <span class="tag tag-pro">PRO</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">25</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">2.9k</span>
+        </div>
+      </div>
+    </div>
+
+    <!--Card 14-->
+     <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/bato cover.jpg" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Personal Finance Tracker
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/bato.png" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">Bato</span>
+          <span class="tag tag-pro">TEAM</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">25</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">2.9k</span>
+        </div>
+      </div>
+    </div>
+
+    <!--Card 15-->
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/lepisov cover.png" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Letter G + Cube + Arrow
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/lepisov.png" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">Lepisov Branding</span>
+          <span class="tag tag-pro">TEAM</span>
+        </div>
+        <div class="stats">
+        <span><img src="../level1 project/icon-park-solid--like.svg" alt="">34</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">1.6k</span>
+        </div>
+      </div>
+    </div>
+
+    <!--Card 16-->
+     <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/renat cover.png" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">NVO: Terminal
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/renat.png" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">Renat Muratshin</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">30</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">1.4k</span>
+        </div>
+      </div>
+    </div>
+
+    <!--Card 17-->
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="detail-page-3.html" class="text-decoration-none">
+        <div class="shot-card">
+          <img src="../level1 project/fancy cover.png" alt="Christmas Fox" class="shot-img">
+          <div class="overlay">
+            <div class="overlay-title">Ovia Landing page web
+            <div class="overlay-actions">
+              <div class="action-btn"><img src="icons/download.svg" alt="Comment"></div>
+              <div class="action-btn"><img src="icons/download (1).svg" alt="Like"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="user-bar">
+        <img src="../level1 project/fancy.png" alt="Alfrey" class="avatar">
+        <div>
+          <span class="username">FANCY</span>
+          <span class="tag tag-pro">TEAM</span>
+        </div>
+        <div class="stats">
+          <span><img src="../level1 project/icon-park-solid--like.svg" alt="">160</span> <span><img src="../level1 project/lets-icons--eye-duotone.svg" alt="">9.6k</span>
+        </div>
+      </div>
+    </div>     
+
+  
+  </div>
+</div>
+
+
+
+
+ <!-- Trigger Button -->
+    <button type="button" class="trigger-btn" data-bs-toggle="modal" data-bs-target="#signUpModal">
+        Sign up to continue
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Dribbble Logo -->
+                    <div class="dribbble-logo">
+                        <img src="../level1 project/streamline-plump--ball.svg" alt="Dribbble Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+
+                    <!-- Title -->
+                    <h2 class="modal-title">Welcome to Dribbble</h2>
+                    
+                    <!-- Subtitle -->
+                    <p class="modal-subtitle">
+                        To browse more shots, please sign in or create an account.
+                    </p>
+
+                    <!-- Google Sign In Button -->
+                    <button class="google-btn">
+                        <img src="../level1 project/material-icon-theme--google.svg" alt="Google" class="google-icon">
+                        <span style="padding-left: 50px; color: #666;"> Continue with Google</span>
+                    </button>
+
+                    <!-- Divider -->
+                    <div class="divider">or</div>
+
+                    <!-- Email Input -->
+                    <form>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Enter email address" required>
+                        </div>
+
+                        <!-- Continue Button -->
+                        <button type="submit" class="continue-btn">Continue</button>
+                    </form>
+
+                    <!-- Terms and Privacy -->
+                    <p class="terms-text">
+                        By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+                    </p>
+
+                    <!-- Sign In Link -->
+                    <p class="signin-text">
+                        Already have an account? <a href="#">Sign in</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+    <section class="scroll-section">
+  
+  <div class="scroll-wrapper">
+    
+    <div class="scroll-track">
+      <div class="left-text">
+        <img src="../level1 project/web design.png" alt="" class="img-fluid">
+        <p class="mt-2 fw-medium">Web Design</p>
+
+      </div>
+    <div class="left-text">
+        <img src="../level1 project/print.png" alt="" class="img-fluid">
+        <p class="mt-2 fw-medium">Print</p>
+
+      </div>
+
+      <div class="left-text">
+        <img src="../level1 project/mobile.png" alt="" class="img-fluid">
+        <p class="mt-2 fw-medium">Mobile</p>
+
+      </div>
+      
+      <div class="left-text">
+        <img src="../level1 project/illustration.jpg" alt="" class="img-fluid">
+        <p class="mt-2 fw-medium">Illustration</p>
+
+      </div>
+      
+      <div class="left-text">
+        <img src="../level1 project/product design.png" alt="" class="img-fluid">
+        <p class="mt-2 fw-medium">Product Design</p>
+
+      </div>
+      
+      <div class="left-text">
+        <img src="../level1 project/branding.jpg" alt="" class="img-fluid">
+        <p class="mt-2 fw-medium">Branding</p>
+
+      </div>
+
+      <div class="left-text">
+        <img src="../level1 project/typography.jpg" alt="" class="img-fluid">
+        <p class="mt-2 fw-medium">Typography</p>
+
+      </div>
+    <div class="left-text">
+        <img src="../level1 project/empowering.png" alt="" class="img-fluid">
+        <p class="mt-2 fw-medium">Empowering</p>
+
+      </div>
+
+      <div class="left-text">
+        <img src="../level1 project/ronas cover.png" alt="" class="img-fluid">
+        <p class="mt-2 fw-medium">Ronas</p>
+
+      </div>
+      
+      <div class="left-text">
+        <img src="../level1 project/elegant.png" alt="" class="img-fluid">
+        <p class="mt-2 fw-medium">Elegant</p>
+
+      </div>
+      
+      <div class="left-text">
+        <img src="../level1 project/real estate.png" alt="" class="img-fluid">
+        <p class="mt-2 fw-medium">Real Estate</p>
+
+      </div>
+      
+      <div class="left-text">
+        <img src="../level1 project/animation.png" alt="" class="img-fluid">
+        <p class="mt-2 fw-medium">Animation</p>
+
+      </div>
+      
+    </div>
+  </div>
+
+</section>
+
+
+ <!-- Top Header Navigation -->
+    <header class="top-header">
+        <div class="container-fluid px-4">
+            <div class="header-content">
+                <div class="logo-section">
+                    <!-- Replace with your Dribbble logo image -->
+                    <img src="../level1 project/Dribbble-Logo.jpg" alt="Dribbble">
+                </div>
+
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">For designers</a></li>
+                    <li><a href="#">Hire talent</a></li>
+                    <li><a href="#">Inspiration</a></li>
+                    <li><a href="#">Advertising</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-header">
+                <!-- Replace with your social icon images -->
+                <a href="https://x.com/dribbble?s=21&t=v_3XZ0UsUm-O2B6GGZwkGQ"><img src="../level1 project/prime--twitter.svg" alt="Twitter"></a>
+                <a href="#"><img src="../level1 project/mingcute--facebook-fill.svg" alt="Facebook"></a>
+                <a href="#"><img src="../level1 project/uil--instagram.svg" alt="Instagram"></a>
+                <a href="#"><img src="../level1 project/akar-icons--pinterest-fill.svg" alt="Pinterest"></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- Sticky promotional banner at bottom -->
+<div class="sticky-footer" id="promoFooter">
+    <div class="container-fluid px-4">
+        <div class="promo-content">
+            <div class="promo-text">
+                New clients get $100 off their first payment of $1,000+ to a designer on Dribbble with code <span class="promo-code">HELLO100</span> 🔥
+            </div>
+            <div class="promo-right">
+                <a href="#" class="terms-btn">Terms Apply</a>
+                <button class="close-btn" onclick="closePromo()" aria-label="Close">×</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+
+   // Target the main navbar container, not navbarNav
+  const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 100) {
+        navbar.classList.add('navbar--scrolled');
+    } else {
+        navbar.classList.remove('navbar--scrolled');
+    }
+});
+
+    document.getElementById('toggleFilters').addEventListener('click', function () {
+      const filterRow = document.getElementById('filterRow');
+      filterRow.classList.toggle('show');
+    });
+
+    function closePromo() {
+        const footer = document.getElementById('promoFooter');
+        footer.style.display = 'none';
+        document.body.style.paddingBottom = '0';
+    }
+
+  </script>
+  </body>
+</html>
